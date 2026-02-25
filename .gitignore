@@ -1,0 +1,30 @@
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Node modules
+node_modules/
+package-lock.json
+yarn.lock
+
+# Playwright artifacts
+.playwright/
+test-results/
+blob-report/
+
+# Test reports
+reports/
+
+# IDE and OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Misc
+*.log
+npm-debug.log*

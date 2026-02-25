@@ -1,0 +1,120 @@
+{
+  "cookies": [
+    {
+      "name": "ApplicationGatewayAffinityCORS",
+      "value": "4588f619b5092b473900fd0f1f7c22bc",
+      "domain": "beta-ask.u.ae",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "ApplicationGatewayAffinity",
+      "value": "4588f619b5092b473900fd0f1f7c22bc",
+      "domain": "beta-ask.u.ae",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ARRAffinity",
+      "value": "66f8b91f71da9b5154f61c97bfa8868b7266c0323e9a99fdaea60ecaf0dbabd3",
+      "domain": ".beta-ask.u.ae",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ARRAffinitySameSite",
+      "value": "66f8b91f71da9b5154f61c97bfa8868b7266c0323e9a99fdaea60ecaf0dbabd3",
+      "domain": ".beta-ask.u.ae",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_ga",
+      "value": "GA1.1.848322599.1771836064",
+      "domain": ".u.ae",
+      "path": "/",
+      "expires": 1806396064.343608,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_NTGQZVDL7C",
+      "value": "GS2.1.s1771836064$o1$g0$t1771836064$j60$l0$h0",
+      "domain": ".u.ae",
+      "path": "/",
+      "expires": 1806396064.368417,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": ".AspNetCore.Antiforgery.NTQKCY1WYCU",
+      "value": "CfDJ8FF_U4nZ4pNHgQKhhwGf58pk8s_PA475DudxEgXY_61WxzXq8YpOuQChahcgZzX2GT_ggT9TgwGNaqV2s52Ru_C3fKe452mdVfG5qZfmguR7ftIJioUla_TCcP2zwbo9nX7EdbLWSUMlY1BjP1qd8y8",
+      "domain": "beta-ask.u.ae",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "XSRF-TOKEN",
+      "value": "CfDJ8FF_U4nZ4pNHgQKhhwGf58pXUGEwaxvakXZueCQR3KvpOpL_YB5x75ILKiBKbKnf60Tw_YPejNOOInpl5eghWPYIhwdnGjV9s5PLoKeuEV_TB196QQ2RaLkhTShXNxX8qTRh4U3tW3lraEfP-CXNskA",
+      "domain": "beta-ask.u.ae",
+      "path": "/",
+      "expires": 1772008865,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://beta-ask.u.ae",
+      "localStorage": [
+        {
+          "name": "is-language-set",
+          "value": "true"
+        },
+        {
+          "name": "auth",
+          "value": "{\"jwt\":{\"token\":\"OE8DH3Ho7H5vEMSCYRw68U1Y6vZmXh-iZvd79n0Q56nKbW45Xr2roeJJg1EK534GW3i-8zfYQracPvxX2UBRO12nr3yKz_CzG6Dz7cWuQw87KftGT-2AJIwBzgODAQQoCtBk57JjYvS3AyAIBYi2G2lILlvTGdQNHNkVErwfSbK-4A0jC7xMGJrbHtvwyAYIWHlezgVctKhkC7fZOPgiIqPs71og5YFo3jkMYemHDOFLBNcdyXx86zT3w_5P-icNA0xJtDI5zvm0wgwPWrpfHN_tmKUG4YEFeMdJDGsITFS-6vu-VIXnKLcKtVFLXNQXNFden2HnzZ2eKY14R1_Ts84hmu6vAbbQHsquoR0c3u7kCXmmqjcHNZCr-bn6KCPSB_1c-00zuEgtqxHSClswbh7D6eqnUJ2AeA47XvGKH_ZL_u4hKvYRxJSml7C6PZgz\",\"createdAt\":\"2026-02-23T08:41:05.567Z\",\"expiresAt\":\"2026-02-23T09:11:06.100Z\"},\"profile\":null,\"userType\":\"anonymous\",\"metadata\":{\"lastActivity\":\"2026-02-23T08:41:05.567Z\",\"loginMethod\":\"anonymous\",\"sidebarIsOpened\":true}}"
+        },
+        {
+          "name": "disclaimerAccepted",
+          "value": "true"
+        },
+        {
+          "name": "language",
+          "value": "en"
+        },
+        {
+          "name": "pmo_service_observatory",
+          "value": "{\"language\":\"ar\",\"surveysHistoryIndex\":{}}"
+        }
+      ]
+    },
+    {
+      "origin": "https://www.google.com",
+      "localStorage": [
+        {
+          "name": "rc::a",
+          "value": "c2MyNTJiMTg5dHkwOA=="
+        }
+      ]
+    }
+  ]
+}
