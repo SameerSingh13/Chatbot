@@ -1,6 +1,6 @@
 # UAE Chatbot Test Automation Framework
 
-A comprehensive end-to-end testing solution for the UAE Government Chatbot (beta-ask.u.ae), built using **Playwright** and **DeepEval** (AI testing framework).
+A comprehensive end-to-end testing solution for the UAE Government Chatbot (beta-ask.u.ae), built using **Playwright** and **DeepEval** and **OpenRouter**. (AI testing framework).
 
 ---
 
@@ -81,22 +81,37 @@ TEST_ENV=qa
 
 We use a **tagging system** to differentiate between quick checks and deep AI analysis:
 
+### **Run by npm Scripts (recommended)**
+These commands are already defined in `package.json`:
+
+```bash
+npm run test:qa              # Run all tests with TEST_ENV=qa
+npm run test:debug           # Open Playwright UI mode
+npm run test:uiopen          # Run headed (browser visible)
+npm run test:ui              # Run only UI suite
+npm run test:ai              # Run only AI suite
+npm run test:security        # Run only security suite
+npm run test:ground-truth    # Run only @ground-truth tagged tests
+npm run test:sanity          # Run only @sanity tagged tests
+npm run test:deep-eval       # Run only @deep-eval tagged tests
+```
+
 ### **Sanity Checks (`@sanity`)**
 These are fast tests that check for keywords and basic UI behavior. They do **not** cost any API credits.
 ```bash
-npx playwright test --grep "@sanity"
+npm run test:sanity
 ```
 
 ### **Deep AI Evaluation (`@deep-eval`)**
 These tests use LLMs to score response accuracy, relevancy, and hallucinations.
 ```bash
-npx playwright test --grep "@deep-eval"
+npm run test:deep-eval
 ```
 
 ### **Ground Truth Verification (`@ground-truth`)**
 These tests validate replies against deterministic expected facts from `test-data/test-data.json`.
 ```bash
-npx playwright test --grep "@ground-truth"
+npm run test:ground-truth
 ```
 
 Ground Truth supports:
@@ -104,13 +119,6 @@ Ground Truth supports:
 - `optional_include`: extra concepts that improve score.
 - `must_not_include`: forbidden hallucinated terms.
 - `reference_sentences` (optional): complete expected sentences matched with token-overlap similarity.
-
-### **General Test Commands**
-| Command | Description |
-|---------|-------------|
-| `npm run test:qa` | Run all tests in the QA environment |
-| `npm run test:ui` | Run only UI/Behavior tests |
-| `npm run test:security` | Run security/injection tests |
 
 ---
 
@@ -147,4 +155,14 @@ After running tests, you can view a beautiful visual report:
 npx playwright show-report
 ```
 *Look in the `reports` folder for historical results.* 
+
+If you want to use the npm script:
+```bash
+npm run report
+```
+This script currently points to `reports/html-report`.
+If your latest run created a timestamped folder (for example `reports/html-report-YYYY-MM-DD_HH-mm-ss`), open it directly with:
+```bash
+npx playwright show-report reports/html-report-YYYY-MM-DD_HH-mm-ss
+```
 

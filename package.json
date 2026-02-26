@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "description": "AI/ML QA Automation Framework for Chatbot",
   "scripts": {
-    "test": "playwright test",
-    "test:dev": "cross-env TEST_ENV=dev playwright test",
     "test:qa": "cross-env TEST_ENV=qa playwright test",
     "test:debug": "cross-env TEST_ENV=qa playwright test --ui",
     "test:uiopen": "cross-env TEST_ENV=qa playwright test --headed",
     "test:ui": "cross-env TEST_ENV=qa playwright test tests/ui",
     "test:ai": "cross-env TEST_ENV=qa playwright test tests/ai",
     "test:ground-truth": "cross-env TEST_ENV=qa playwright test --grep @ground-truth",
+    "test:sanity": "cross-env TEST_ENV=qa playwright test --grep @sanity",
     "test:security": "cross-env TEST_ENV=qa playwright test tests/security",
+    "test:deepeval": "cross-env TEST_ENV=qa playwright test --grep @deepeval",
     "report": "playwright show-report reports/html-report"
   },
   "devDependencies": {

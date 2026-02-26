@@ -26,6 +26,7 @@ module.exports = defineConfig({
 globalSetup: require.resolve('./global-setup'),
 
   testDir: './tests',
+  retries : 1,
   workers: 1,
   timeout: 60000,
 
