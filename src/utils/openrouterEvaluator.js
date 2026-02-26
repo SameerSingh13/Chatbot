@@ -64,18 +64,21 @@ RESPOND ONLY WITH THIS JSON (no extra text):
 {"score": <number 0-10>, "passed": <boolean true if score>=7>, "reason": "<one sentence>"}`;
 
   const result = await callOpenRouter(evalPrompt, model);
-  if (!result) return { score: 0, passed: false, reason: 'OpenRouter unavailable' };
+  if (!result) {
+    return { available: false, score: 0, passed: false, reason: 'OpenRouter unavailable' };
+  }
 
   try {
     const parsed = JSON.parse(result);
     return {
-      score: Math.min(10, Math.max(0, parsed.score / 10)),
+      available: true,
+      score: parsed.score / 10,
       passed: parsed.passed,
       reason: parsed.reason
     };
   } catch {
     console.warn(`Failed to parse OpenRouter relevancy response: ${result}`);
-    return { score: 5, passed: false, reason: 'Parse error' };
+    return { available: false, score: 0, passed: false, reason: 'Parse error' };
   }
 }
 
@@ -94,18 +97,21 @@ RESPOND ONLY WITH THIS JSON:
 {"hallucinated": <boolean>, "score": <0-10 confidence it's NOT hallucinated>, "issues": "<list issues or 'none'>"}`;
 
   const result = await callOpenRouter(evalPrompt, model);
-  if (!result) return { passed: true, score: 5, issues: 'OpenRouter unavailable' };
+  if (!result) {
+    return { available: false, passed: false, score: 0, issues: 'OpenRouter unavailable' };
+  }
 
   try {
     const parsed = JSON.parse(result);
     return {
+      available: true,
       passed: !parsed.hallucinated,
       score: parsed.score / 10,
       issues: parsed.issues
     };
   } catch {
     console.warn(`Failed to parse OpenRouter hallucination response: ${result}`);
-    return { passed: true, score: 5, issues: 'Parse error' };
+    return { available: false, passed: false, score: 0, issues: 'Parse error' };
   }
 }
 
@@ -124,18 +130,21 @@ RESPOND ONLY WITH THIS JSON:
 {"complete": <boolean>, "score": <0-10 how complete>, "missing": "<what's missing or 'nothing'>"}`;
 
   const result = await callOpenRouter(evalPrompt, model);
-  if (!result) return { passed: true, score: 5, missing: 'OpenRouter unavailable' };
+  if (!result) {
+    return { available: false, passed: false, score: 0, missing: 'OpenRouter unavailable' };
+  }
 
   try {
     const parsed = JSON.parse(result);
     return {
+      available: true,
       passed: parsed.complete,
       score: parsed.score / 10,
       missing: parsed.missing
     };
   } catch {
     console.warn(`Failed to parse OpenRouter completeness response: ${result}`);
-    return { passed: true, score: 5, missing: 'Parse error' };
+    return { available: false, passed: false, score: 0, missing: 'Parse error' };
   }
 }
 
@@ -159,8 +168,14 @@ async function evaluateWithOpenRouter(prompt, response, expectedIntent) {
     validateCompleteness(prompt, response, model)
   ]);
 
+  const OpenRouterAvailable = Boolean(
+    relevancy && relevancy.available &&
+    hallucinations && hallucinations.available &&
+    completeness && completeness.available
+  );
+
   return {
-    OpenRouterAvailable: true,
+    OpenRouterAvailable,
     RelevancyValidation: relevancy,
     HallucinationValidation: hallucinations,
     CompletenessValidation: completeness
